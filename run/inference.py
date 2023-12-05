@@ -30,7 +30,7 @@ def load_model(cfg: InferenceConfig) -> BaseModel:
     # load weights
     if cfg.weight is not None:
         weight_path = (
-            Path(cfg.dir.model_dir) / cfg.weight.exp_name / cfg.weight.run_name / "best_model.pth"
+            Path(cfg.dir.model_dir) / cfg.weight.exp_name / cfg.weight.run_name / cfg.best_model_name
         )
         model.load_state_dict(torch.load(weight_path))
         print('load weight from "{}"'.format(weight_path))
@@ -128,7 +128,7 @@ def main(cfg: InferenceConfig):
             score_th=cfg.pp.score_th,
             distance=cfg.pp.distance,
         )
-    sub_df.write_csv(Path(cfg.dir.sub_dir) / "submission.csv")
+    sub_df.write_csv(Path(cfg.dir.sub_dir) / (cfg.best_model_name+'.csv'))
 
 
 if __name__ == "__main__":
