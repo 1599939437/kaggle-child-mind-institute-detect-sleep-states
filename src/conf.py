@@ -122,6 +122,8 @@ class TrainConfig:
 @dataclass
 class InferenceConfig:
     exp_name: str
+    best_model_name: str
+    smp_name: str
     phase: str
     seed: int
     batch_size: int
