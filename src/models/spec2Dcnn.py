@@ -25,7 +25,7 @@ class Spec2DCNN(BaseModel):
         super().__init__()
         self.smp_name = smp_name
         self.feature_extractor = feature_extractor
-                if str(smp_name) == 'Unet':
+        if str(smp_name) == 'Unet':
             self.encoder = smp.Unet(
                 encoder_name=encoder_name,
                 encoder_weights=encoder_weights,
