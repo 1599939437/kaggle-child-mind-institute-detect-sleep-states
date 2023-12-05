@@ -115,6 +115,7 @@ def get_model(
             in_channels=feature_extractor.out_chans,
             mixup_alpha=cfg.aug.mixup_alpha,
             cutmix_alpha=cfg.aug.cutmix_alpha,
+            smp_name=cfg.smp_name,
             **cfg.model.params,
         )
     elif cfg.model.name == "Spec1D":
